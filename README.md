@@ -23,12 +23,16 @@ http://localhost:8080/jsp-app
 export TOMCAT_HOME=/opt/java/apache-tomcat-8.5.31
 ````
 
-Add to *TOMCAT_HOME/conf/tomcat-users.xml*
+Add to *$TOMCAT_HOME/conf/tomcat-users.xml*
 
-`<user username="tomcat" password="tomcat" roles="manager-script"/>`
+```xml
+<role rolename="manager-gui"/>
+<role rolename="manager-script"/>
+<user username="tomcat" password="tomcat" roles="manager-gui,manager-script"/>
+```
 
 ```bash
-TOMCAT_HOME/bin/catalina.sh run
+$TOMCAT_HOME/bin/catalina.sh run
 mvn tomcat7:deploy
 ```
 
