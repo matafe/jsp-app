@@ -1,5 +1,9 @@
 # jsp-app
 
+mvn tomcat7:run
+
+http://localhost:8080/
+
 # Maven App Creation
  mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-webapp -DarchetypeVersion=1.4 -DgroupId=com.matafe -DartifactId=jsp-app -Dversion=1.0-SNAPSHOT -Dpackage=com.matafe.jsp-app -DinteractiveMode=false
 
