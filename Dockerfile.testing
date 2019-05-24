@@ -1,0 +1,19 @@
+#FROM maven:3.5-jdk-8-alpine
+
+LABEL description="Under construction..."
+
+FROM alpine/git as git
+WORKDIR /app
+RUN git clone https://github.com/matafe/jsp-app.git
+
+FROM maven:3.5-jdk-8-alpine as maven
+WORKDIR /app
+COPY --from=0 /app/jsp-app /app
+RUN mvn package
+
+FROM tomcat
+
+MAINTAINER Mauricio Ferraz <matafe@gmail.com>
+
+# COPY path-to-your-application-war path-to-webapps-in-docker-tomcat
+COPY app/target/jsp-app.war /usr/local/tomcat/webapps/
