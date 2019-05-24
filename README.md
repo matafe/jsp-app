@@ -10,12 +10,22 @@ git clone https://github.com/matafe/jsp-app.git
 mvn clean package
 ```
 
-## Run
+## Run local for DEV
 ```bash
 mvn tomcat7:run
 ````
 
 http://localhost:8080/jsp-app
+
+## Run in a docker container
+```bash
+mvn clean package && 
+docker build -t jsp-app . && 
+docker run -d -p 8080:8080 --name jspapp jsp-app
+````
+
+### Connect on docker container.
+docker exec -it jspapp1 bash
 
 ## Deploy in other Tomcat Server
 
